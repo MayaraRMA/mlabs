@@ -1,0 +1,66 @@
+:root {
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space: 24px;
+  --space-md: 40px;
+  --space-lg: 50px;
+  --space-xlg: 64px;
+
+  --screen-sm: 768px;
+
+  
+  --gray-dark: #828282;
+  --gray-darker:#333333;
+  --gray-light:#989898;  
+  --gray-lighter: #DDDDDD;
+  --gray: #4F4F4F;
+  --orange-lighter: #FFF3E0;
+  --orange: #EF9F2E;
+  --orange-dark: #F2994A;
+  --orange-darker: #E0812C;
+  --red: #E02B4B;
+  --blue: #2F80ED;
+  --white: #fff;
+  --black: #000;
+
+  --brand-primary: var(--blue);
+  --background-orange: v ar(--orange-lighter);
+  --background-gradient: linear-gradient(135deg,var(--orange) 25%, var(--red ) 105.56%);;
+  --background-hover: var(--gray-light);
+  --text-color: var(--gray-darker);
+  --border-orange: 1px solid var(--orange);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, input, button {
+  font: 16px 'Poppins', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+  cursor: pointer;
+}
