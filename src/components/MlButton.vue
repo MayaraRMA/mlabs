@@ -40,7 +40,7 @@ export default {
   border: none;
 
   &:hover {
-    background-color: var(--background-hover);
+    opacity: 0.7;
   }
 }
 
@@ -50,8 +50,8 @@ export default {
   border: 1px solid var(--blue);
 }
 
-.button-secondary {
-  background-color: var(--orange);
-  border: var(--border-orange);
+.button-tertiary {
+  background-color: transparent;
+  color: var(--blue);
 }
 </style>
