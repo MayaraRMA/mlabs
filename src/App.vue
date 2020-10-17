@@ -26,5 +26,6 @@ export default {
 
 .view {
   flex: 1;
+  background-color: var(--background-gray);
 }
 </style>
