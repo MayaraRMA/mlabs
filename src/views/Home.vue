@@ -1,12 +1,8 @@
 <template>
-  <div class="home">
-    <img alt="agendar post" src="../assets/schedule.png" @click="goCreatePost"/>
-    <ml-button
-      label="Agendar post"
-      customed-class="button-secondary"
-      @eventClick="goCreatePost"
-    />
-  </div>
+  <router-link class="home" tag="section" to="/createschedule">
+    <img alt="agendar post" src="../assets/schedule.png"/>
+    <ml-button label="Agendar post" customed-class="button-secondary"/>
+  </router-link>
 </template>
 
 <script>
@@ -16,11 +12,6 @@ export default {
   name: "Home",
   components: {
     MlButton
-  },
-  methods: {
-    goCreatePost() {
-      this.$router.push("/createschedule");
-    }
   }
 };
 </script>
