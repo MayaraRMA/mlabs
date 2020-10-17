@@ -1,4 +1,4 @@
- <template>
+<template>
   <div class="modal" v-if="showModal && movie">
     <div class="content">
       <img :src="movie.posterPath" alt="movie.title" />

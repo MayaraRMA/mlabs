@@ -37,7 +37,7 @@ export default {
   border-radius: var(--space-xxs);
   color: var(--white);
   padding: var(--space-xs) var(--space-sm);
-  border: none;  
+  border: none;
 
   &:hover {
     background-color: var(--background-hover);

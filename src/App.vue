@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <ml-header />
-    <router-view />
+    <router-view class="view" />
   </div>
 </template>
 
@@ -17,4 +17,14 @@ export default {
 
 <style lang="scss">
 @import "@/styles/global";
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.view {
+  flex: 1;
+}
 </style>
