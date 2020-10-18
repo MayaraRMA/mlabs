@@ -4,7 +4,7 @@
     @click="handleClick"
     class="ml-button"
     :class="customedClass"
-    :disabled="isInFirstPage"
+    :disabled="disabled"
     :aria-label="label"
     :title="label"
   >
@@ -21,6 +21,9 @@ export default {
     },
     customedClass: {
       type: String
+    },
+    disabled: {
+      type: Boolean
     }
   },
   methods: {
