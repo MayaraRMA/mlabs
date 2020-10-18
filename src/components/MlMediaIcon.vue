@@ -1,5 +1,5 @@
 <template>
-  <div class="icon" :class="{ active: !icon.disable, disable: icon.disable }">
+  <div class="icon" :class="classes">
     <font-awesome-icon
       :icon="['fab', icon.name]"
       :style="{ 'font-size': '18px' }"
@@ -15,10 +15,27 @@ export default {
     icon: {
       type: Object,
       default: () => {}
+    },
+    customedClass: {
+      type: String,
+      default: ""
+    },
+    clicked: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
     FontAwesomeIcon
+  },
+  computed: {
+    classes() {
+      return {
+        active: this.cliked,
+        disable: this.icon.disable,
+        [`${this.customedClass}`]: true
+      };
+    }
   }
 };
 </script>
@@ -54,5 +71,17 @@ export default {
     border: var(--border-gray);
     cursor: not-allowed;
   }
+}
+
+.facebook {
+  color: var(--white);
+  background-color: #3a70da;
+  border: 1px solid #3a70da;
+}
+
+.instagram {
+  color: var(--white);
+  background-color: #d60f86;
+  border: 1px solid #d60f86;
 }
 </style>
