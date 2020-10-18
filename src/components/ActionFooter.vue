@@ -2,16 +2,29 @@
   <footer>
     <ml-button label="Cancelar" customed-class="button-tertiary" />
     <ml-button label="Salvar rascunho" customed-class="button-outline" />
-    <ml-button label="Agendar" />
+    <ml-button label="Agendar" @eventClick="openModal" />
+    <ml-modal ref="successModal" @close="goSchedules" />
   </footer>
 </template>
 
 <script>
 import MlButton from "./MlButton";
+import MlModal from "./MlModal";
+
 export default {
   name: "ActionFooter",
   components: {
-    MlButton
+    MlButton,
+    MlModal
+  },
+  methods: {
+    openModal() {
+      console.log("aqui");
+      this.$refs.successModal.open();
+    },
+    goSchedules() {
+      this.$router.push("/schedules");
+    }
   }
 };
 </script>
