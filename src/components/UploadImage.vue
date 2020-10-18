@@ -1,7 +1,11 @@
 <template>
   <ml-article title="Upload de Imagem">
     <div class="dropzone-area">
-      <vue-dropzone :options="dropzoneOptions" :useCustomSlot="true">
+      <vue-dropzone
+        :options="dropzoneOptions"
+        id="dropzone"
+        :useCustomSlot="true"
+      >
         <div class="dropzone-content">
           <font-awesome-icon :icon="['fas', 'cloud-upload-alt']" />
           <h3 class="dropzone-title">
