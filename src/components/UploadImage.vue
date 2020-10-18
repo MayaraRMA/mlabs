@@ -29,6 +29,7 @@ import MlButton from "./MlButton";
 import MlArticle from "./MlArticle";
 
 export default {
+  name: "UploadImage",
   components: {
     MlArticle,
     MlButton,

@@ -15,6 +15,7 @@
 <script>
 import MlArticle from "./MlArticle";
 export default {
+  name: "PostText",
   components: {
     MlArticle
   }

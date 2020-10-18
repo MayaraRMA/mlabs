@@ -23,6 +23,7 @@ import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/locale/pt-br";
 
 export default {
+  name: "MlCalendar",
   components: { FontAwesomeIcon, DatePicker },
   data() {
     return {

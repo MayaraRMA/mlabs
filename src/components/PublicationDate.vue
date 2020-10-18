@@ -13,6 +13,7 @@ import MlCalendar from "./MlCalendar";
 import MlTime from "./MlTime";
 
 export default {
+  name: "PublicationDate",
   components: {
     MlArticle,
     MlCalendar,

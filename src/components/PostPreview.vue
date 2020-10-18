@@ -13,6 +13,7 @@
 <script>
 import MlArticle from "./MlArticle";
 export default {
+  name: "PostPreview",
   components: {
     MlArticle
   }

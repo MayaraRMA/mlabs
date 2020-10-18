@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: "MlArticle",
   props: {
     title: {
       type: String
