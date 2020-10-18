@@ -36,6 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 .ml-button {
+  min-width: 184px;
   background-color: var(--blue);
   border-radius: var(--space-xxs);
   color: var(--white);
