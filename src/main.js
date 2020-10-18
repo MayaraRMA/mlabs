@@ -6,7 +6,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faCalendarAlt,
   faClock,
-  faCloudUploadAlt
+  faCloudUploadAlt,
+  faArrowDown
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faInstagram,
@@ -22,6 +23,7 @@ library.add(
   faCalendarAlt,
   faClock,
   faCloudUploadAlt,
+  faArrowDown,
   faInstagram,
   faLinkedin,
   faYoutube,
