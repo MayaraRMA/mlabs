@@ -30,9 +30,11 @@
   --background-gradient: linear-gradient(135deg,var(--orange) 25%, var(--red ) 105.56%);;
   --background-hover: var(--gray-light);
   --text-color: var(--gray-darker);
+  --border-radius: var(--space-xxs);
   --border-orange: 1px solid var(--orange);
   --border-gray: 1px solid #E0E0E0;
   --border-icon: 1px solid #9E9E9E;
+  --border-dropzone: 1px dashed #BDBDBD;
   --font: 16px 'Poppins', sans-serif;
 }
 
@@ -56,6 +58,10 @@ body, input, button, textarea {
 
 button {
   cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
 }
 
 ul {

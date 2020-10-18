@@ -18,7 +18,7 @@ export default {
 <style lang="scss" scoped>
 article {
   background-color: var(--white);
-  border-radius: var(--space-xxs);
+  border-radius: var(--border-radius);
 
   h1 {
     padding: var(--space-xxs) var(--space-sm);
