@@ -6,10 +6,9 @@
       valueType="format"
       format="HH:MM"
       type="time"
-      :lang="lang"
       :append-to-body="false"
       placeholder="HH:MM"
-      :popup-style="{ 'display': 'none' }"
+      :popup-style="{ display: 'none' }"
     >
       <template slot="icon-calendar">
         <p></p>
@@ -24,6 +23,7 @@ import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/locale/pt-br";
 
 export default {
+  name: "MlTime",
   components: { FontAwesomeIcon, DatePicker },
   data() {
     return {
