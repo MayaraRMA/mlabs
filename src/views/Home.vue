@@ -1,7 +1,7 @@
 <template>
   <router-link class="home" tag="section" to="/createschedule">
-    <img alt="agendar post" src="../assets/schedule.png"/>
-    <ml-button label="Agendar post" customed-class="button-secondary"/>
+    <img alt="agendar post" src="../assets/schedule.png" />
+    <ml-button label="Agendar post" customed-class="button-secondary" />
   </router-link>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
   <footer>
-    <ml-button label="Cancelar" customed-class="button-tertiary"/>
-    <ml-button label="Salvar rascunho" customed-class="button-outline"/>
-    <ml-button label="Agendar"/>
+    <ml-button label="Cancelar" customed-class="button-tertiary" />
+    <ml-button label="Salvar rascunho" customed-class="button-outline" />
+    <ml-button label="Agendar" />
   </footer>
 </template>
 
@@ -27,5 +27,4 @@ footer {
     margin-right: var(--space-sm);
   }
 }
-
 </style>
