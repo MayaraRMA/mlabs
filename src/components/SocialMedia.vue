@@ -2,7 +2,7 @@
   <ml-article title="Redes Sociais">
     <div class="medias">
       <template v-for="(icon, index) in icons">
-        <ml-media-icon :key="index" :icon="icon" />
+        <ml-media-icon :key="index" :id="icon.id"/>
       </template>
     </div>
   </ml-article>
@@ -11,6 +11,7 @@
 <script>
 import MlArticle from "./MlArticle";
 import MlMediaIcon from "./MlMediaIcon";
+import { data } from "../../data/social-networks";
 
 export default {
   name: "SocialMedia",
@@ -20,32 +21,7 @@ export default {
   },
   data() {
     return {
-      icons: [
-        {
-          name: "instagram",
-          disable: false
-        },
-        {
-          name: "linkedin",
-          disable: false
-        },
-        {
-          name: "youtube",
-          disable: true
-        },
-        {
-          name: "pinterest",
-          disable: true
-        },
-        {
-          name: "twitter",
-          disable: true
-        },
-        {
-          name: "facebook-f",
-          disable: true
-        }
-      ]
+      icons: data
     };
   }
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="icon" :class="classes">
     <font-awesome-icon
-      :icon="['fab', icon.name]"
+      :icon="['fab', socialNetwork.icon]"
       :style="{ 'font-size': '18px' }"
     />
   </div>
@@ -9,32 +9,45 @@
 
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { data } from "../../data/social-networks";
+
 export default {
   name: "MediaIcon",
   props: {
-    icon: {
-      type: Object,
-      default: () => {}
+    id: {
+      type: Number,
+      default: 0
     },
     customedClass: {
-      type: String,
-      default: ""
-    },
-    clicked: {
       type: Boolean,
       default: false
-    }
+    },
   },
   components: {
     FontAwesomeIcon
   },
+  data() {
+    return {
+      socialNetworks: data,
+      cliked: false
+    };
+  },
   computed: {
+    socialNetwork() {
+      const [media] = this.socialNetworks.filter(
+        social => social.id === this.id
+      );
+      return media;
+    },
     classes() {
       return {
         active: this.cliked,
-        disable: this.icon.disable,
-        [`${this.customedClass}`]: true
+        disable: this.isDisabled,
+        [`${this.socialNetwork.icon}`]: this.customedClass
       };
+    },
+    isDisabled() {
+      return this.socialNetwork.status === "disabled";
     }
   }
 };
@@ -73,7 +86,7 @@ export default {
   }
 }
 
-.facebook {
+.linkedin-in {
   color: var(--white);
   background-color: #3a70da;
   border: 1px solid #3a70da;
