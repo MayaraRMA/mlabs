@@ -11,9 +11,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faInstagram,
-  faLinkedin,
+  faLinkedinIn,
   faYoutube,
-  faPinterest,
+  faPinterestP,
   faTwitter,
   faFacebookF
 } from "@fortawesome/free-brands-svg-icons";
@@ -25,9 +25,9 @@ library.add(
   faCloudUploadAlt,
   faArrowDown,
   faInstagram,
-  faLinkedin,
+  faLinkedinIn,
   faYoutube,
-  faPinterest,
+  faPinterestP,
   faTwitter,
   faFacebookF
 );
