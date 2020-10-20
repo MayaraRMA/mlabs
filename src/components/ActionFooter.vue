@@ -1,6 +1,10 @@
 <template>
   <footer>
-    <ml-button label="Cancelar" customed-class="button-tertiary" @eventClick="goHome"/>
+    <ml-button
+      label="Cancelar"
+      customed-class="button-tertiary"
+      @eventClick="goHome"
+    />
     <ml-button :label="buttonOutline" customed-class="button-outline" />
     <ml-button label="Agendar" @eventClick="openModal" />
     <ml-modal ref="successModal" @close="goSchedules" />
@@ -16,7 +20,7 @@ export default {
   components: {
     MlButton,
     MlModal
-  }, 
+  },
   data() {
     return {
       isMedia: false,
@@ -63,7 +67,7 @@ footer {
   justify-content: flex-end;
   padding: var(--space-sm) var(--space-md);
 
-   @media (max-width: 720px) {
+  @media (max-width: 720px) {
     padding: var(--space-xs);
   }
 

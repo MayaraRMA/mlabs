@@ -1,6 +1,10 @@
 <template>
   <div>
-    <ml-button label="Vizualizar post" customed-class="button-secondary" class="btn-view"/>
+    <ml-button
+      label="Vizualizar post"
+      customed-class="button-secondary"
+      class="btn-view"
+    />
     <ml-article title="Vizualização do post" class="upload-container">
       <div class="no-content">
         <h2>
@@ -24,12 +28,10 @@ export default {
     MlButton
   },
   data() {
-    return {
-      
-    }
+    return {};
   },
   methods: {
-   watchMedia() {
+    watchMedia() {
       let mql = window.matchMedia("(max-width: 720px)");
       this.isMedia = mql.matches;
     }
@@ -47,7 +49,7 @@ export default {
 <style lang="scss" scoped>
 .upload-container {
   display: none;
-   @media (min-width: 480px) {
+  @media (min-width: 480px) {
     display: block;
     height: 100%;
   }
@@ -55,7 +57,7 @@ export default {
 
 .btn-view {
   width: 100%;
-   @media (min-width: 480px) {
+  @media (min-width: 480px) {
     display: none;
   }
 }

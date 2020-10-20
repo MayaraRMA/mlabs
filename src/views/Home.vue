@@ -25,7 +25,6 @@ export default {
 }
 
 img {
-  
   margin-bottom: var(--space-lg);
   cursor: pointer;
 

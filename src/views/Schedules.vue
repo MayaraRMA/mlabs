@@ -1,8 +1,7 @@
 <template>
   <section class="schedules">
-     <h1>Listagem de agendamento</h1>
+    <h1>Listagem de agendamento</h1>
     <div class="schedulet-table">
-     
       <ml-table v-bind="{ columns, data }">
         <template v-slot:social_network_key="props">
           <div class="social">

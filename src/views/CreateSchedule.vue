@@ -52,13 +52,13 @@ main {
 }
 
 .text-post {
-   @media (min-width: 480px) {
+  @media (min-width: 480px) {
     grid-column: 1/3;
     grid-row: 2;
   }
 }
 
-.upimg { 
+.upimg {
   @media (min-width: 480px) {
     grid-column: 1/3;
     grid-row: 3;

@@ -8,7 +8,7 @@ import {
   faClock,
   faCloudUploadAlt,
   faArrowDown,
-  faBars,
+  faBars
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faInstagram,
