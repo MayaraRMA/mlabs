@@ -1,7 +1,7 @@
 <template>
   <footer>
-    <ml-button label="Cancelar" customed-class="button-tertiary" />
-    <ml-button label="Salvar rascunho" customed-class="button-outline" />
+    <ml-button label="Cancelar" customed-class="button-tertiary" @eventClick="goHome"/>
+    <ml-button :label="buttonOutline" customed-class="button-outline" />
     <ml-button label="Agendar" @eventClick="openModal" />
     <ml-modal ref="successModal" @close="goSchedules" />
   </footer>
@@ -16,15 +16,42 @@ export default {
   components: {
     MlButton,
     MlModal
+  }, 
+  data() {
+    return {
+      isMedia: false,
+      buttonOutline: "Salvar Rascunho"
+    };
+  },
+  watch: {
+    isMedia(newValue) {
+      if (newValue) {
+        this.buttonOutline = "Rascunho";
+      }
+    }
   },
   methods: {
     openModal() {
       console.log("aqui");
       this.$refs.successModal.open();
     },
+    goHome() {
+      this.$router.push("/");
+    },
     goSchedules() {
       this.$router.push("/schedules");
+    },
+    watchMedia() {
+      let mql = window.matchMedia("(max-width: 720px)");
+      this.isMedia = mql.matches;
     }
+  },
+  mounted() {
+    this.watchMedia();
+    window.addEventListener("resize", this.watchMedia);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.watchMedia);
   }
 };
 </script>
@@ -35,6 +62,18 @@ footer {
   display: flex;
   justify-content: flex-end;
   padding: var(--space-sm) var(--space-md);
+
+   @media (max-width: 720px) {
+    padding: var(--space-xs);
+  }
+
+  .ml-button {
+    @media (max-width: 720px) {
+      width: 104px;
+      font-size: 12px;
+      padding: var(--space-xxs) var(--space-xs);
+    }
+  }
 
   button:not(:last-child) {
     margin-right: var(--space-sm);

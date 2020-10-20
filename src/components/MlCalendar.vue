@@ -44,6 +44,7 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  max-width: 124px;
 
   svg {
     margin-left: var(--space-xs);
@@ -55,6 +56,7 @@ export default {
 .mx-input {
   outline: none;
   border: none;
+  padding: 12px 10px;
 }
 
 .mx-datepicker-popup {

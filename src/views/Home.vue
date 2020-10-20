@@ -25,7 +25,12 @@ export default {
 }
 
 img {
+  
   margin-bottom: var(--space-lg);
   cursor: pointer;
+
+  @media (max-width: 720px) {
+    width: 100%;
+  }
 }
 </style>

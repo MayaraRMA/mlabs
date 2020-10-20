@@ -63,6 +63,7 @@ export default {
   align-items: center;
 
   text-align: center;
+  z-index: 109;
 
   .content {
     width: 60%;

@@ -1,7 +1,8 @@
 <template>
   <section class="schedules">
+     <h1>Listagem de agendamento</h1>
     <div class="schedulet-table">
-      <h1>Listagem de agendamento</h1>
+     
       <ml-table v-bind="{ columns, data }">
         <template v-slot:social_network_key="props">
           <div class="social">
@@ -93,20 +94,19 @@ export default {
 
 <style lang="scss" scoped>
 .schedules {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: var(--space);
+}
 
-  h1 {
-    font-size: 16px;
-    color: var(--gray);
-    margin-bottom: var(--space);
-  }
+h1 {
+  width: 100%;
+  font-size: 16px;
+  color: var(--gray);
+  margin-bottom: var(--space);
 }
 
 .schedulet-table {
-  width: 90%;
+  width: 100%;
+  overflow-x: auto;
 }
 .social {
   display: flex;

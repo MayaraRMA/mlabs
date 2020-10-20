@@ -2,7 +2,7 @@
   <ml-article title="Redes Sociais">
     <div class="medias">
       <template v-for="(icon, index) in icons">
-        <ml-media-icon :key="index" :id="icon.id"/>
+        <ml-media-icon :key="index" :id="icon.id" />
       </template>
     </div>
   </ml-article>

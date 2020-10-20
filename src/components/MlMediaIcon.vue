@@ -21,7 +21,7 @@ export default {
     customedClass: {
       type: Boolean,
       default: false
-    },
+    }
   },
   components: {
     FontAwesomeIcon

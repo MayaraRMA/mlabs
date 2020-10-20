@@ -36,16 +36,23 @@ export default {
 
 <style lang="scss" scoped>
 .ml-button {
-  min-width: 184px;
   background-color: var(--blue);
   border-radius: var(--space-xxs);
   color: var(--white);
   padding: var(--space-xs) var(--space-sm);
   border: none;
 
+  @media (min-width: 480px) {
+    min-width: 184px;
+  }
+
   &:hover {
     opacity: 0.7;
   }
+}
+
+.button-secondary {
+  background-color: var(--orange);
 }
 
 .button-outline {

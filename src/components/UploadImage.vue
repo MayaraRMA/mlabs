@@ -7,7 +7,7 @@
         :useCustomSlot="true"
       >
         <div class="dropzone-content">
-          <font-awesome-icon :icon="['fas', 'cloud-upload-alt']" />
+          <font-awesome-icon :icon="['fas', 'cloud-upload-alt']"/>
           <h3 class="dropzone-title">
             Arraste e solte uma imagem aqui ou clique no botão abaixo
           </h3>
@@ -71,13 +71,28 @@ export default {
   color: var(--gray-dark);
 
   svg {
-    font-size: 40px;
-    margin-bottom: var(--space);
+   display: none;
+
+     @media (min-width: 480px) {
+       display: block;
+      font-size: 40px;
+      margin-bottom: var(--space);
+    }
   }
 
   h3 {
-    font-size: 16px;
+   display: none;
+
+     @media (min-width: 480px) {
+       display: block;
+
+       font-size: 16px;
     margin-bottom: var(--space);
+    }
+  }
+
+  .ml-button {
+    width: 200px;
   }
 }
 </style>

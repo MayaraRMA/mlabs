@@ -35,32 +35,33 @@ export default {
 <style lang="scss" scoped>
 main {
   display: grid;
-  grid-template:
-    "social date post"
-    "text-post text-post post"
-    "upimg upimg post"
-    / 0.5fr 0.5fr 1fr;
-  gap: var(--space-md);
-  padding: var(--space-lg) var(--space-md);
-}
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  padding: var(--space);
 
-.social {
-  grid-area: social;
+  @media (min-width: 480px) {
+    grid-template-columns: 315px 315px 1fr;
+    gap: var(--space-sm);
+  }
 }
-
-.date {
-  grid-area: date;
+.post {
+  @media (min-width: 480px) {
+    grid-column: 3;
+    grid-row: span 3;
+  }
 }
 
 .text-post {
-  grid-area: text-post;
+   @media (min-width: 480px) {
+    grid-column: 1/3;
+    grid-row: 2;
+  }
 }
 
-.post {
-  grid-area: post;
-}
-
-.upimg {
-  grid-area: upimg;
+.upimg { 
+  @media (min-width: 480px) {
+    grid-column: 1/3;
+    grid-row: 3;
+  }
 }
 </style>

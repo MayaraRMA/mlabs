@@ -40,7 +40,7 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
+  max-width: 124px;
   svg {
     margin-left: var(--space-xs);
   }
