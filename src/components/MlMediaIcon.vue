@@ -9,7 +9,7 @@
 
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { data } from "../../data/social-networks";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "MediaIcon",
@@ -28,16 +28,21 @@ export default {
   },
   data() {
     return {
-      socialNetworks: data,
       cliked: false
     };
   },
   computed: {
+    ...mapGetters("social_networks", {
+      socialNetworks: "social_networks"
+    }),
     socialNetwork() {
-      const [media] = this.socialNetworks.filter(
-        social => social.id === this.id
-      );
-      return media;
+      if (this.socialNetworks.length > 0) {
+        const [media] = this.socialNetworks.filter(
+          social => social.id === this.id
+        );
+        return media;
+      }
+      return { icon: "font-awesome" };
     },
     classes() {
       return {
@@ -49,6 +54,14 @@ export default {
     isDisabled() {
       return this.socialNetwork.status === "disabled";
     }
+  },
+  methods: {
+    ...mapActions("social_networks", {
+      get_social_networks: "get_social_networks"
+    })
+  },
+  mounted() {
+    this.get_social_networks();
   }
 };
 </script>

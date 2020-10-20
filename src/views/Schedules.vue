@@ -2,7 +2,7 @@
   <section class="schedules">
     <h1>Listagem de agendamento</h1>
     <div class="schedulet-table">
-      <ml-table v-bind="{ columns, data }">
+      <ml-table v-bind="{ columns }" :data="schedules">
         <template v-slot:social_network_key="props">
           <div class="social">
             <ml-media-icon
@@ -35,8 +35,7 @@
 <script>
 import MlTable from "@/components/MlTable";
 import MlMediaIcon from "@/components/MlMediaIcon";
-import { data } from "../../data/schedules.json";
-import { data as schedulesStatus } from "../../data/schedules-status.json";
+import { mapGetters, mapActions } from "vuex";
 
 const columns = [
   {
@@ -74,19 +73,34 @@ export default {
   },
   data() {
     return {
-      columns: columns,
-      data: data
+      columns: columns
     };
+  },
+  computed: {
+    ...mapGetters("schedules", {
+      schedulesStatus: "schedules_status",
+      schedules: "schedules"
+    })
   },
   methods: {
     setStatusName(value) {
-      const [status] = schedulesStatus.filter(item => item.id === value);
-      return status.name;
+      if (this.schedulesStatus.length > 0) {
+        const [status] = this.schedulesStatus.filter(item => item.id === value);
+        return status.name;
+      }
     },
     setStatusColor(value) {
-      const [status] = schedulesStatus.filter(item => item.id === value);
-      return status.color;
-    }
+      if (this.schedulesStatus.length > 0) {
+        const [status] = this.schedulesStatus.filter(item => item.id === value);
+        return status.color;
+      }
+    },
+    ...mapActions("schedules", {
+      get_schedules_status: "get_schedules_status"
+    })
+  },
+  async mounted() {
+    await this.get_schedules_status();
   }
 };
 </script>

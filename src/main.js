@@ -16,7 +16,8 @@ import {
   faYoutube,
   faPinterestP,
   faTwitter,
-  faFacebookF
+  faFacebookF,
+  faFontAwesome
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -31,7 +32,8 @@ library.add(
   faYoutube,
   faPinterestP,
   faTwitter,
-  faFacebookF
+  faFacebookF,
+  faFontAwesome
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);

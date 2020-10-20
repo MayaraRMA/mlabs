@@ -51,9 +51,6 @@ export default {
     FontAwesomeIcon
   },
   props: {
-    tableName: {
-      type: String
-    },
     columns: {
       type: Array,
       default: () => [
@@ -70,20 +67,32 @@ export default {
   },
   data() {
     return {
-      dataTable: this.data,
-      direction: "",
+      dataTable: [],
+      dataColumns: [],
+      direction: "asc",
       formatters: {
         date: formatterDateTime
       }
     };
   },
-  computed: {
-    dataColumns() {
-      return this.columns.map(column => ({
-        ...column,
-        asc: column.ordable
-      }));
+  watch: {
+    data: {
+      immediate: true,
+      handler(newValue) {
+        this.dataTable = newValue;
+      }
     },
+    columns: {
+      immediate: true,
+      handler(newValue) {
+        this.dataColumns = newValue.map(column => ({
+          ...column,
+          asc: !!column.ordable
+        }));
+      }
+    }
+  },
+  computed: {
     noData() {
       return this.dataTable.length === 0;
     },
@@ -101,7 +110,7 @@ export default {
     },
     orderBy(column) {
       this.direction = column.asc ? "asc" : "desc";
-      this.dataTable = orderBy(this.data, column.key, [this.direction]);
+      this.dataTable = orderBy(this.dataTable, column.key, [this.direction]);
     },
     flipColumn(column) {
       this.dataColumns.forEach(columnData => {

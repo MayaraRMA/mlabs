@@ -1,7 +1,7 @@
 <template>
   <ml-article title="Redes Sociais">
     <div class="medias">
-      <template v-for="(icon, index) in icons">
+      <template v-for="(icon, index) in social_networks">
         <ml-media-icon :key="index" :id="icon.id" />
       </template>
     </div>
@@ -11,7 +11,7 @@
 <script>
 import MlArticle from "./MlArticle";
 import MlMediaIcon from "./MlMediaIcon";
-import { data } from "../../data/social-networks";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "SocialMedia",
@@ -19,10 +19,18 @@ export default {
     MlArticle,
     MlMediaIcon
   },
-  data() {
-    return {
-      icons: data
-    };
+  computed: {
+    ...mapGetters("social_networks", {
+      social_networks: "social_networks"
+    })
+  },
+  methods: {
+    ...mapActions("social_networks", {
+      get_social_networks: "get_social_networks"
+    })
+  },
+  mounted() {
+    this.get_social_networks();
   }
 };
 </script>
