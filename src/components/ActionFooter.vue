@@ -14,6 +14,7 @@
 <script>
 import MlButton from "./MlButton";
 import MlModal from "./MlModal";
+import { mapActions, mapMutations, mapGetters } from "vuex";
 
 export default {
   name: "ActionFooter",
@@ -34,6 +35,11 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters("schedules", {
+      post: "post"
+    })
+  },
   methods: {
     openModal() {
       console.log("aqui");
@@ -42,13 +48,21 @@ export default {
     goHome() {
       this.$router.push("/");
     },
-    goSchedules() {
+    async goSchedules() {
+      await this.get_schedules();
+      this.add_schedules(this.post);
       this.$router.push("/schedules");
     },
     watchMedia() {
       let mql = window.matchMedia("(max-width: 720px)");
       this.isMedia = mql.matches;
-    }
+    },
+    ...mapActions("schedules", {
+      get_schedules: "get_schedules"
+    }),
+    ...mapMutations("schedules", {
+      add_schedules: "add_schedules"
+    })
   },
   mounted() {
     this.watchMedia();
