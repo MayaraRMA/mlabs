@@ -8,7 +8,13 @@ import {
   faClock,
   faCloudUploadAlt,
   faArrowDown,
-  faBars
+  faBars,
+  faBookmark,
+  faHeart,
+  faComment,
+  faCommentAlt,
+  faShare,
+  faThumbsUp
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faInstagram,
@@ -33,7 +39,13 @@ library.add(
   faPinterestP,
   faTwitter,
   faFacebookF,
-  faFontAwesome
+  faFontAwesome,
+  faBookmark,
+  faHeart,
+  faComment,
+  faCommentAlt,
+  faShare,
+  faThumbsUp
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
