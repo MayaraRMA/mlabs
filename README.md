@@ -2,12 +2,12 @@
 
 ## Decisões Técnicas
 A escolha do Vue foi feita pela familiaridade com o framework.
-No CSS, foi usado Sass e variáveis nativas
+Foi usado Sass e variáveis CSS
 Quanto à construção de componentes, dentro do possível, foi aplicada a teoria do Atomic Design 
 Nas requisições, foi usado fetch, função nativa, uma vez que seriam apenas a arquivos .json
 
 ## Dificuldades
-- Implementação da dropzone (incompleta) - leitura do arquivo e atualização na store
+- Implementação da dropzone (incompleta) - leitura do arquivo e atualização na store - a dependência encontrada não atende.
 - Construção do componente MlMediaIcon
 - Descobrir que requisições a arquivos json devem ficar na pasta public
 
@@ -19,6 +19,12 @@ Nas requisições, foi usado fetch, função nativa, uma vez que seriam apenas a
 - Implementar test e2e
 - Finalizar testes unitários
 - Os ícones usados no componente de preview exigem a versão pro do font-awesome
+- Sanar os deads clicks
+
+## Node
+```
+versão 12.x
+```
 
 ## Project setup
 ```
@@ -43,6 +49,11 @@ npm run test:unit
 ### Lints and fixes files
 ```
 npm run lint
+```
+
+### Run production
+```
+npm run start
 ```
 
 ### Customize configuration
