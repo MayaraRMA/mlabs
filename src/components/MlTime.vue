@@ -2,13 +2,12 @@
   <div class="time-container">
     <font-awesome-icon :icon="['fas', 'clock']" />
     <date-picker
-      v-model="time1"
-      valueType="format"
-      format="HH:MM"
+      v-model="time"
+      valueType="HH:mm:ss"
+      format="HH:mm"
       type="time"
       :append-to-body="false"
       placeholder="HH:MM"
-      :popup-style="{ display: 'none' }"
     >
       <template slot="icon-calendar">
         <p></p>
@@ -25,10 +24,18 @@ import "vue2-datepicker/locale/pt-br";
 export default {
   name: "MlTime",
   components: { FontAwesomeIcon, DatePicker },
-  data() {
-    return {
-      time1: null
-    };
+  props: {
+    value: {}
+  },
+  computed: {
+    time: {
+      get() {
+        return this.value;
+      },
+      set(newValue) {
+        this.$emit("input", newValue);
+      }
+    }
   }
 };
 </script>

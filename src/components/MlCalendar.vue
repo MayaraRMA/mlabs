@@ -2,8 +2,8 @@
   <div class="calendar-container">
     <font-awesome-icon :icon="['fas', 'calendar-alt']" />
     <date-picker
-      v-model="time1"
-      valueType="format"
+      v-model="date"
+      valueType="YYYY-MM-DD"
       format="DD/MM/YYYY"
       type="date"
       :lang="lang"
@@ -25,14 +25,26 @@ import "vue2-datepicker/locale/pt-br";
 export default {
   name: "MlCalendar",
   components: { FontAwesomeIcon, DatePicker },
+  props: {
+    value: {}
+  },
   data() {
     return {
-      time1: null,
       lang: {
         monthFormat: "MMMM",
         days: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"]
       }
     };
+  },
+  computed: {
+    date: {
+      get() {
+        return this.value;
+      },
+      set(newValue) {
+        this.$emit("input", newValue);
+      }
+    }
   }
 };
 </script>
@@ -56,7 +68,7 @@ export default {
 .mx-input {
   outline: none;
   border: none;
-  padding: 12px 10px;
+  padding: var(--space) 10px;
 }
 
 .mx-datepicker-popup {
