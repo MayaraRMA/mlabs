@@ -21,7 +21,6 @@ export default {
       const dataJSON = await dadosResponse.json();
 
       commit("set_schedules", dataJSON);
-      commit("add_schedules");
     },
     get_schedules_status: async ({ commit }) => {
       const dadosResponse = await fetch("schedules-status.json");
