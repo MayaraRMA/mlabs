@@ -18,6 +18,11 @@
             <img :src="props.row.media" alt="media" />
           </div>
         </template>
+        <template v-slot:action>
+          <div class="preview">
+            <a href="">Preview</a>
+          </div>
+        </template>
         <template v-slot:status_key="props">
           <div class="status">
             <div
@@ -57,7 +62,7 @@ const columns = [
     format: "date"
   },
   {
-    key: "",
+    key: "action",
     text: "Ações"
   },
   {
@@ -131,6 +136,10 @@ h1 {
   }
 }
 
+.preview {
+  width: 100%;
+  text-align: center;
+}
 .media {
   text-align: center;
   img {
