@@ -1,6 +1,6 @@
 <template>
   <ml-article title="Texto do post">
-    <div class="post">
+    <div class="post" @click="clearTextarea">
       <VueEmoji
         ref="emoji"
         width="100%"
@@ -15,6 +15,7 @@
 <script>
 import MlArticle from "./MlArticle";
 import VueEmoji from "emoji-vue";
+import { mapMutations } from "vuex";
 
 export default {
   name: "PostText",
@@ -24,15 +25,20 @@ export default {
   },
   data() {
     return {
-      text: ""
+      text: "Aqui vai o texto descritivo desse post"
     };
   },
   methods: {
+    ...mapMutations("post", {
+      set_post: "set_post"
+    }),
     onInput(event) {
+      this.set_post({ text: event.data });
       this.text = event.data;
     },
     clearTextarea() {
-      this.$refs.emoji.clear();
+      if (this.text == "Aqui vai o texto descritivo desse post")
+        this.$refs.emoji.clear();
     }
   }
 };
