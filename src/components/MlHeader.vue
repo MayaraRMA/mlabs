@@ -1,10 +1,11 @@
 <template>
   <header class="header">
-    <font-awesome-icon
-      :icon="['fas', 'bars']"
-      :style="{ 'font-size': '30px' }"
-      class="menu"
-    />
+    <router-link to="/" class="menu" tag="div">
+      <font-awesome-icon
+        :icon="['fas', 'bars']"
+        :style="{ 'font-size': '30px' }"
+      />
+    </router-link>
     <router-link to="/" class="logo">
       <img alt="mLabs" src="../assets/logo.png" />
     </router-link>
