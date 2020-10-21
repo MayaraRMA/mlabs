@@ -4,6 +4,6 @@ import MlMediaIcon from "@/components/MlMediaIcon.vue";
 describe("MlMediaIcon.vue", () => {
   it("correctly mounted", () => {
     const wrapper = shallowMount(MlMediaIcon);
-    expect(wrapper.exists()).toMatchSnapshot();
+    expect(wrapper.exists()).toBeTruthy();
   });
 });

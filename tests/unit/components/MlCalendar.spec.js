@@ -4,6 +4,6 @@ import MlCalendar from "@/components/MlCalendar.vue";
 describe("MlCalendar.vue", () => {
   it("correctly mounted", () => {
     const wrapper = shallowMount(MlCalendar);
-    expect(wrapper.exists()).toMatchSnapshot();
+    expect(wrapper.exists()).toBeTruthy();
   });
 });

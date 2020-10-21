@@ -4,6 +4,6 @@ import MlButton from "@/components/MlButton.vue";
 describe("MlButton.vue", () => {
   it("correctly mounted", () => {
     const wrapper = shallowMount(MlButton);
-    expect(wrapper.exists()).toMatchSnapshot();
+    expect(wrapper.exists()).toBeTruthy();
   });
 });

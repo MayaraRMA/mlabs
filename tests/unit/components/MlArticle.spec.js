@@ -4,6 +4,6 @@ import MlArticle from "@/components/MlArticle.vue";
 describe("MlArticle.vue", () => {
   it("correctly mounted", () => {
     const wrapper = shallowMount(MlArticle);
-    expect(wrapper.exists()).toMatchSnapshot();
+    expect(wrapper.exists()).toBeTruthy();
   });
 });
