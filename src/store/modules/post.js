@@ -22,6 +22,10 @@ export default {
     },
     set_date: (state, value) => {
       state.date = value;
+    },
+    send_post: state => {
+      state.post.id++;
+      state.post.publication_date = `${state.date}T${state.time}.922Z`;
     }
   },
   getters: {
@@ -31,6 +35,9 @@ export default {
     social_network_key: state => state.post.social_network_key,
     has_social_network: state => state.post.social_network_key.length > 0,
     text: state => state.post,
-    media: state => state.post.media
+    media: state => state.post.media,
+    can_schedule: (state, getters) => {
+      return !!state.date && !!state.time && getters.has_social_network;
+    }
   }
 };
