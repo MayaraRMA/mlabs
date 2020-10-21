@@ -6,7 +6,11 @@
       @eventClick="goHome"
     />
     <ml-button :label="buttonOutline" customed-class="button-outline" />
-    <ml-button label="Agendar" @eventClick="openModal" />
+    <ml-button
+      label="Agendar"
+      @eventClick="openModal"
+      :disabled="!can_schedule"
+    />
     <ml-modal ref="successModal" @close="goSchedules" />
   </footer>
 </template>
@@ -14,7 +18,7 @@
 <script>
 import MlButton from "@/components/MlButton";
 import MlModal from "@/components/MlModal";
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapMutations, mapGetters } from "vuex";
 
 export default {
   name: "ActionFooter",
@@ -36,8 +40,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters("schedules", {
-      post: "post"
+    ...mapGetters("post", {
+      post: "post",
+      can_schedule: "can_schedule"
     })
   },
   methods: {
@@ -48,7 +53,9 @@ export default {
       this.$router.push("/");
     },
     async goSchedules() {
+      this.send_post();
       await this.get_schedules();
+      this.add_schedules(this.post);
       this.$router.push("/listschedules");
     },
     watchMedia() {
@@ -57,6 +64,12 @@ export default {
     },
     ...mapActions("schedules", {
       get_schedules: "get_schedules"
+    }),
+    ...mapMutations("post", {
+      send_post: "send_post"
+    }),
+    ...mapMutations("schedules", {
+      add_schedules: "add_schedules"
     })
   },
   mounted() {
