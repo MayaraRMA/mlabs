@@ -21,15 +21,14 @@ export default {
     customedClass: {
       type: Boolean,
       default: false
+    },
+    clicked: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
     FontAwesomeIcon
-  },
-  data() {
-    return {
-      cliked: false
-    };
   },
   computed: {
     ...mapGetters("social_networks", {
@@ -46,7 +45,7 @@ export default {
     },
     classes() {
       return {
-        active: this.cliked,
+        active: this.clicked,
         disable: this.isDisabled,
         [`${this.socialNetwork.icon}`]: this.customedClass
       };
