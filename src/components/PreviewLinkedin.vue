@@ -104,6 +104,6 @@ img {
 
 .text {
   padding: var(--space-xs);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xxs);
 }
 </style>
