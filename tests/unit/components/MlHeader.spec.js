@@ -1,9 +1,21 @@
-import { shallowMount } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import MlHeader from "@/components/MlHeader.vue";
 
+const $route = {
+  path: "/some/path"
+};
 describe("MlHeader.vue", () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = mount(MlHeader, {
+      stubs: ["router-link", "font-awesome-icon"],
+      mocks: {
+        $route
+      }
+    });
+  });
   it("correctly mounted", () => {
-    const wrapper = shallowMount(MlHeader);
     expect(wrapper.exists()).toBeTruthy();
   });
 });
