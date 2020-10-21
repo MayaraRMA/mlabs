@@ -1,9 +1,13 @@
 <template>
   <ml-article title="Redes Sociais">
     <div class="medias">
-      <template v-for="(icon, index) in social_networks">
-        <ml-media-icon :key="index" :id="icon.id" />
-      </template>
+      <div
+        v-for="(icon, index) in socialNetworks"
+        :key="index"
+        @click="selectMedia(icon)"
+      >
+        <ml-media-icon :id="icon.id" :clicked="icon.clicked" />
+      </div>
     </div>
   </ml-article>
 </template>
@@ -11,13 +15,26 @@
 <script>
 import MlArticle from "./MlArticle";
 import MlMediaIcon from "./MlMediaIcon";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   name: "SocialMedia",
   components: {
     MlArticle,
     MlMediaIcon
+  },
+  data() {
+    return {
+      socialNetworks: []
+    };
+  },
+  watch: {
+    social_networks(newValue) {
+      this.socialNetworks = newValue.map(sn => ({
+        ...sn,
+        clicked: false
+      }));
+    }
   },
   computed: {
     ...mapGetters("social_networks", {
@@ -27,7 +44,19 @@ export default {
   methods: {
     ...mapActions("social_networks", {
       get_social_networks: "get_social_networks"
-    })
+    }),
+    ...mapMutations("post", {
+      set_post: "set_post"
+    }),
+    selectMedia(socialNetwork) {
+      this.set_post({ social_network_key: [socialNetwork.id] });
+      this.socialNetworks = this.socialNetworks.map(x => {
+        return {
+          ...x,
+          clicked: x.id === socialNetwork.id
+        };
+      });
+    }
   },
   mounted() {
     this.get_social_networks();
@@ -40,6 +69,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: var(--space);
 }
 </style>
