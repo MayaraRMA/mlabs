@@ -29,6 +29,7 @@ export default {
     date: state => state.date,
     post: state => state.post,
     social_network_key: state => state.post.social_network_key,
+    has_social_network: state => state.post.social_network_key.length > 0,
     text: state => state.post,
     media: state => state.post.media
   }
