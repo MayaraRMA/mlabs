@@ -104,13 +104,25 @@ export default {
 
 .linkedin-in {
   color: var(--white);
-  background-color: #3a70da;
-  border: 1px solid #3a70da;
+  background-color: var(--linkedin-color);
+  border: 1px solid var(--linkedin-color);
+  cursor: default;
+  &:hover {
+    color: var(--white);
+    background-color: var(--linkedin-color);
+    border: 1px solid var(--linkedin-color);
+  }
 }
 
 .instagram {
   color: var(--white);
-  background-color: #d60f86;
-  border: 1px solid #d60f86;
+  background-color: var(--instagram-color);
+  border: 1px solid var(--instagram-color);
+  cursor: default;
+  &:hover {
+    color: var(--white);
+    background-color: var(--instagram-color);
+    border: 1px solid var(--instagram-color);
+  }
 }
 </style>
