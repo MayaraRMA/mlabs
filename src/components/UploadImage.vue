@@ -2,8 +2,9 @@
   <ml-article title="Upload de Imagem">
     <div class="dropzone-area">
       <vue-dropzone
-        :options="dropzoneOptions"
+        ref="myVueDropzone"
         id="dropzone"
+        :options="dropzoneOptions"
         :useCustomSlot="true"
       >
         <div class="dropzone-content">
@@ -40,9 +41,9 @@ export default {
     return {
       dropzoneOptions: {
         url: "https://httpbin.org/post",
-        thumbnailWidth: 150,
-        maxFilesize: 0.5,
-        headers: { "My-Awesome-Header": "header value" }
+        thumbnailWidth: 200,
+        maxFiles: 1,
+        addRemoveLinks: true
       }
     };
   },

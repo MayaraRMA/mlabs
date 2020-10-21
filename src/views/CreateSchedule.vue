@@ -39,27 +39,28 @@ main {
   gap: var(--space-sm);
   padding: var(--space);
 
-  @media (min-width: 480px) {
-    grid-template-columns: 315px 315px 1fr;
+  @media (min-width: 720px) {
+    grid-template-columns: 0.4fr 0.35fr 1fr;
     gap: var(--space-sm);
   }
 }
+
 .post {
-  @media (min-width: 480px) {
+  @media (min-width: 720px) {
     grid-column: 3;
     grid-row: span 3;
   }
 }
 
 .text-post {
-  @media (min-width: 480px) {
+  @media (min-width: 720px) {
     grid-column: 1/3;
     grid-row: 2;
   }
 }
 
 .upimg {
-  @media (min-width: 480px) {
+  @media (min-width: 720px) {
     grid-column: 1/3;
     grid-row: 3;
   }
