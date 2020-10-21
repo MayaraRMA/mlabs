@@ -41,7 +41,8 @@ main {
 
   @media (min-width: 720px) {
     grid-template-columns: 0.4fr 0.4fr 1fr;
-    gap: var(--space-sm);
+    grid-template-rows: 0.4fr 0.7fr 0.7fr;
+    gap: var(--space-md);
   }
 }
 
