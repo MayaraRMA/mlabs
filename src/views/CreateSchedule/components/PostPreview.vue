@@ -7,11 +7,18 @@
     />
     <ml-article title="Vizualização do post" class="upload-container">
       <div class="no-content">
-        <h2>
-          Aguardando conteúdo. Informe os canais e as mídias desejadas para
-          visualização.
-        </h2>
-        <img src="@/assets/post.png" alt="aguardando conteúdo" />
+        <div v-if="has_social_network">
+          <preview-instagram v-if="showPreview(3)" />
+          <preview-linkedin v-if="showPreview(2)" />
+        </div>
+
+        <div v-else>
+          <h2>
+            Aguardando conteúdo. Informe os canais e as mídias desejadas para
+            visualização.
+          </h2>
+          <img src="@/assets/post.png" alt="aguardando conteúdo" />
+        </div>
       </div>
     </ml-article>
   </div>
@@ -20,20 +27,31 @@
 <script>
 import MlArticle from "@/components/MlArticle";
 import MlButton from "@/components/MlButton";
+import PreviewInstagram from "@/components/PreviewInstagram";
+import PreviewLinkedin from "@/components/PreviewLinkedin";
+import { mapGetters } from "vuex";
 
 export default {
   name: "PostPreview",
   components: {
     MlArticle,
-    MlButton
+    MlButton,
+    PreviewInstagram,
+    PreviewLinkedin
   },
-  data() {
-    return {};
+  computed: {
+    ...mapGetters("post", {
+      has_social_network: "has_social_network",
+      social_network_key: "social_network_key"
+    })
   },
   methods: {
     watchMedia() {
       let mql = window.matchMedia("(max-width: 720px)");
       this.isMedia = mql.matches;
+    },
+    showPreview(id) {
+      return id === this.social_network_key[0];
     }
   },
   mounted() {
