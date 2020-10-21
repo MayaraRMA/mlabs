@@ -4,12 +4,12 @@
       <ml-media-icon :customedClass="true" :id="2" />
       <div>
         <p>{{ user_name }}</p>
-        <p>{{ date }}</p>
+        <p>{{ dateFormatted }}</p>
       </div>
     </header>
     <p class="text">{{ post.text }}</p>
     <img :src="post.media" alt="" />
-    <p>5 comentários</p>
+    <p class="comments">5 comentários</p>
     <div class="instagram-reactions">
       <font-awesome-icon
         :icon="['fas', 'thumbs-up']"
@@ -45,7 +45,16 @@ export default {
     ...mapGetters("post", {
       post: "post",
       date: "date"
-    })
+    }),
+    dateFormatted() {
+      const date = new Date(this.date);
+      const options = {
+        month: "long",
+        day: "numeric",
+        timeZone: "UTC"
+      };
+      return new Intl.DateTimeFormat("pt-BR", options).format(date);
+    }
   }
 };
 </script>
@@ -70,6 +79,11 @@ export default {
 img {
   width: 368px;
   height: 368px;
+}
+.comments {
+  padding: var(--space-xs);
+  color: var(--gray-light);
+  border-bottom: var(--border-gray);
 }
 
 .instagram-reactions {
