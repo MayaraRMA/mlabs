@@ -1,31 +1,32 @@
 <template>
   <ml-article title="Upload de Imagem">
-    <div class="dropzone-area">
-      <vue-dropzone
-        ref="myVueDropzone"
-        id="dropzone"
-        :options="dropzoneOptions"
-        :useCustomSlot="true"
-      >
-        <div class="dropzone-content">
-          <font-awesome-icon :icon="['fas', 'cloud-upload-alt']" />
-          <h3 class="dropzone-title">
-            Arraste e solte uma imagem aqui ou clique no botão abaixo
-          </h3>
-          <ml-button
-            label="Pesquisar imagens"
-            customed-class="button-outline"
-          />
-        </div>
-      </vue-dropzone>
+    <div
+      class="dropzone-area"
+      @dragover.prevent.stop=""
+      @dragenter.prevent.stop=""
+      @drop.prevent.stop="dropzone"
+    >
+      <p class="file-add" v-if="hasFile" @click="remove">{{ file.name }}</p>
+      <label v-else for="photos">
+        <font-awesome-icon :icon="['fas', 'cloud-upload-alt']" />
+        <h3 class="dropzone-title">
+          Arraste e solte uma imagem aqui ou clique no botão abaixo
+        </h3>
+        <div class="btn">Pesquisar Imagens</div>
+      </label>
+      <input
+        id="photos"
+        name="photos"
+        type="file"
+        ref="photos"
+        @change="addPhoto"
+      />
     </div>
   </ml-article>
 </template>
 
 <script>
-import vue2Dropzone from "vue2-dropzone";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import MlButton from "@/components/MlButton";
 
 import MlArticle from "@/components/MlArticle";
 
@@ -33,23 +34,32 @@ export default {
   name: "UploadImage",
   components: {
     MlArticle,
-    MlButton,
-    FontAwesomeIcon,
-    vueDropzone: vue2Dropzone
+    FontAwesomeIcon
   },
   data() {
     return {
-      dropzoneOptions: {
-        url: "https://httpbin.org/post",
-        thumbnailWidth: 200,
-        maxFiles: 1,
-        addRemoveLinks: true
-      }
+      files: [],
+      file: null
     };
   },
+  computed: {
+    hasFile() {
+      return this.files.length > 0;
+    }
+  },
   methods: {
-    onFileChanged(event) {
-      this.selectedFile = event.target.files[0];
+    addPhoto() {
+      this.files = this.$refs.photos.files;
+      this.file = {
+        name: this.files[0].name,
+        file: this.files[0]
+      };
+    },
+    dropzone(event) {
+      this.$refs.photos.files = event.dataTransfer.files;
+    },
+    remove() {
+      this.files = [];
     }
   }
 };
@@ -62,7 +72,18 @@ export default {
   border-radius: var(--border-radius);
 }
 
-.dropzone-content {
+.file-add {
+  padding: var(--space-xlg);
+  text-align: center;
+  color: var(--orange);
+  cursor: pointer;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+label {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,30 +91,39 @@ export default {
 
   padding: var(--space);
   color: var(--gray-dark);
+}
 
-  svg {
-    display: none;
+svg {
+  display: none;
 
-    @media (min-width: 480px) {
-      display: block;
-      font-size: 40px;
-      margin-bottom: var(--space);
-    }
+  @media (min-width: 480px) {
+    display: block;
+    font-size: 40px;
+    margin-bottom: var(--space);
   }
+}
 
-  h3 {
-    display: none;
+h3 {
+  display: none;
 
-    @media (min-width: 480px) {
-      display: block;
+  @media (min-width: 480px) {
+    display: block;
 
-      font-size: 16px;
-      margin-bottom: var(--space);
-    }
+    font-size: 16px;
+    margin-bottom: var(--space);
   }
+}
 
-  .ml-button {
-    width: 200px;
+.btn {
+  border-radius: var(--space-xxs);
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
   }
 }
 </style>
