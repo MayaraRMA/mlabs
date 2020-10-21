@@ -2,11 +2,11 @@
   <ml-article title="Redes Sociais">
     <div class="medias">
       <div
-        v-for="(icon, index) in socialNetworks"
+        v-for="(icon, index) in social_networks"
         :key="index"
         @click="selectMedia(icon)"
       >
-        <ml-media-icon :id="icon.id" :clicked="icon.clicked" />
+        <ml-media-icon :id="icon.id" />
       </div>
     </div>
   </ml-article>
@@ -23,19 +23,6 @@ export default {
     MlArticle,
     MlMediaIcon
   },
-  data() {
-    return {
-      socialNetworks: []
-    };
-  },
-  watch: {
-    social_networks(newValue) {
-      this.socialNetworks = newValue.map(sn => ({
-        ...sn,
-        clicked: false
-      }));
-    }
-  },
   computed: {
     ...mapGetters("social_networks", {
       social_networks: "social_networks"
@@ -50,12 +37,6 @@ export default {
     }),
     selectMedia(socialNetwork) {
       this.set_post({ social_network_key: [socialNetwork.id] });
-      this.socialNetworks = this.socialNetworks.map(x => {
-        return {
-          ...x,
-          clicked: x.id === socialNetwork.id
-        };
-      });
     }
   },
   mounted() {

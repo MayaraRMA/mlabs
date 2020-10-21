@@ -21,10 +21,6 @@ export default {
     customedClass: {
       type: Boolean,
       default: false
-    },
-    clicked: {
-      type: Boolean,
-      default: false
     }
   },
   components: {
@@ -34,6 +30,14 @@ export default {
     ...mapGetters("social_networks", {
       socialNetworks: "social_networks"
     }),
+    ...mapGetters("post", {
+      social_network_key: "social_network_key"
+    }),
+    clicked() {
+      return this.customedClass
+        ? false
+        : this.social_network_key[0] === this.id;
+    },
     socialNetwork() {
       if (this.socialNetworks.length > 0) {
         const [media] = this.socialNetworks.filter(
