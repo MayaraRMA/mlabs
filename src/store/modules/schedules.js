@@ -1,15 +1,6 @@
 export default {
   namespaced: true,
   state: {
-    post: {
-      id: 3,
-      social_network_key: [2, 3],
-      media:
-        "https://images.unsplash.com/photo-1600025282051-ec0c6bf3137a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-      text: "Texto do post",
-      publication_date: "2020-09-10T15:59:23.922Z",
-      status_key: 1
-    },
     schedules: [],
     schedules_status: []
   },
@@ -20,8 +11,8 @@ export default {
     set_schedules_status: (state, value) => {
       state.schedules_status = value;
     },
-    add_schedules: state => {
-      state.schedules = [state.post, ...state.schedules];
+    add_schedules: (state, value) => {
+      state.schedules = [value, ...state.schedules];
     }
   },
   actions: {
