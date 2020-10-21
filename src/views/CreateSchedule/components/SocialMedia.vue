@@ -36,7 +36,8 @@ export default {
       set_post: "set_post"
     }),
     selectMedia(socialNetwork) {
-      this.set_post({ social_network_key: [socialNetwork.id] });
+      if (socialNetwork.status == "enabled")
+        this.set_post({ social_network_key: [socialNetwork.id] });
     }
   },
   mounted() {
