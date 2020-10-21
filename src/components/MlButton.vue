@@ -49,6 +49,16 @@ export default {
   &:hover {
     opacity: 0.7;
   }
+
+  &[disabled] {
+    background-color: var(--gray-lighter);
+    color: var(--gray-light);
+    border: solid 1px var(--gray-lighter);
+    cursor: not-allowed;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .button-secondary {
