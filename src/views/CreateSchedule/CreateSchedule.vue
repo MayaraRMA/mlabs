@@ -40,7 +40,7 @@ main {
   padding: var(--space);
 
   @media (min-width: 720px) {
-    grid-template-columns: 0.4fr 0.35fr 1fr;
+    grid-template-columns: 0.4fr 0.4fr 1fr;
     gap: var(--space-sm);
   }
 }

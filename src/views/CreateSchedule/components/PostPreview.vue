@@ -6,13 +6,13 @@
       class="btn-view"
     />
     <ml-article title="Vizualização do post" class="upload-container">
-      <div class="no-content">
+      <div class="content">
         <div v-if="has_social_network">
           <preview-instagram v-if="showPreview(3)" />
           <preview-linkedin v-if="showPreview(2)" />
         </div>
 
-        <div v-else>
+        <div v-else class="content">
           <h2>
             Aguardando conteúdo. Informe os canais e as mídias desejadas para
             visualização.
@@ -80,12 +80,12 @@ export default {
   }
 }
 
-.no-content {
+.content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: var(--space-xlg);
+  padding: var(--space-lg);
 
   h2 {
     color: var(--gray-dark);
