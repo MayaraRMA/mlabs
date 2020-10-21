@@ -11,15 +11,15 @@
           Aguardando conteúdo. Informe os canais e as mídias desejadas para
           visualização.
         </h2>
-        <img src="../assets/post.png" alt="aguardando conteúdo" />
+        <img src="@/assets/post.png" alt="aguardando conteúdo" />
       </div>
     </ml-article>
   </div>
 </template>
 
 <script>
-import MlArticle from "./MlArticle";
-import MlButton from "./MlButton";
+import MlArticle from "@/components/MlArticle";
+import MlButton from "@/components/MlButton";
 
 export default {
   name: "PostPreview",

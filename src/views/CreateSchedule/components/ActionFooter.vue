@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import MlButton from "./MlButton";
-import MlModal from "./MlModal";
+import MlButton from "@/components/MlButton";
+import MlModal from "@/components/MlModal";
 import { mapActions, mapGetters } from "vuex";
 
 export default {

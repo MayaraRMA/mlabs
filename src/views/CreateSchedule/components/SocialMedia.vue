@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import MlArticle from "./MlArticle";
-import MlMediaIcon from "./MlMediaIcon";
+import MlArticle from "@/components/MlArticle";
+import MlMediaIcon from "@/components/MlMediaIcon";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {

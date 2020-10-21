@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import MlArticle from "./MlArticle";
+import MlArticle from "@/components/MlArticle";
 import VueEmoji from "emoji-vue";
 import { mapMutations } from "vuex";
 

@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import MlArticle from "./MlArticle";
-import MlCalendar from "./MlCalendar";
-import MlTime from "./MlTime";
+import MlArticle from "@/components/MlArticle";
+import MlCalendar from "@/components/MlCalendar";
+import MlTime from "@/components/MlTime";
 import { mapMutations, mapGetters } from "vuex";
 
 export default {

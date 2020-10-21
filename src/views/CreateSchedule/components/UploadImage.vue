@@ -25,9 +25,9 @@
 <script>
 import vue2Dropzone from "vue2-dropzone";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import MlButton from "./MlButton";
+import MlButton from "@/components/MlButton";
 
-import MlArticle from "./MlArticle";
+import MlArticle from "@/components/MlArticle";
 
 export default {
   name: "UploadImage",

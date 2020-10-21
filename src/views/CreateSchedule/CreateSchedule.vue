@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import ActionFooter from "@/components/ActionFooter.vue";
-import SocialMedia from "@/components/SocialMedia.vue";
-import PublicationDate from "@/components/PublicationDate.vue";
-import PostText from "@/components/PostText.vue";
-import UploadImage from "@/components/UploadImage.vue";
-import PostPreview from "@/components/PostPreview.vue";
+import ActionFooter from "./components/ActionFooter.vue";
+import SocialMedia from "./components/SocialMedia.vue";
+import PublicationDate from "./components/PublicationDate.vue";
+import PostText from "./components/PostText.vue";
+import UploadImage from "./components/UploadImage.vue";
+import PostPreview from "./components/PostPreview.vue";
 
 export default {
   name: "CreateSchedule",
