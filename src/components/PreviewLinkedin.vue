@@ -4,7 +4,7 @@
       <ml-media-icon :customedClass="true" :id="2" />
       <div>
         <p>{{ user_name }}</p>
-        <p>{{ dateFormatted }}</p>
+        <p class="date">{{ dateFormatted }}</p>
       </div>
     </header>
     <p class="text">{{ post.text }}</p>
@@ -47,13 +47,17 @@ export default {
       date: "date"
     }),
     dateFormatted() {
-      const date = new Date(this.date);
-      const options = {
-        month: "long",
-        day: "numeric",
-        timeZone: "UTC"
-      };
-      return new Intl.DateTimeFormat("pt-BR", options).format(date);
+      if (this.date) {
+        const date = new Date(this.date);
+        const options = {
+          month: "long",
+          day: "numeric",
+          timeZone: "UTC"
+        };
+        return new Intl.DateTimeFormat("pt-BR", options).format(date);
+      }
+
+      return "";
     }
   }
 };
@@ -74,6 +78,11 @@ export default {
   p {
     margin-left: var(--space-xs);
   }
+}
+
+.date {
+  font-size: 12px;
+  color: var(--gray-light);
 }
 
 img {
