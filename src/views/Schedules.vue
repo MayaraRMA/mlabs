@@ -20,7 +20,7 @@
         </template>
         <template v-slot:action>
           <div class="preview">
-            <a href="">Preview</a>
+            <a href="#">Preview</a>
           </div>
         </template>
         <template v-slot:status_key="props">
