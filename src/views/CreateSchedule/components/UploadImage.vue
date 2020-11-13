@@ -1,12 +1,14 @@
 <template>
   <ml-article title="Upload de Imagem">
-    <div
-      class="dropzone-area"
-      @dragover.prevent.stop=""
-      @dragenter.prevent.stop=""
-      @drop.prevent.stop="dropzone"
-    >
-      <p class="file-add" v-if="hasFile" @click="remove">{{ file.name }}</p>
+    <div class="dropzone-area" @dragover.prevent @drop.prevent="dropzone">
+      <ul class="file-add" v-if="hasFile">
+        <li v-for="(file, index) in files" :key="index">
+          {{ file.name }} ({{ file.size | kb }} kb)
+          <button class="file-remove" @click="removeFile(file)" title="Excluir">
+            X
+          </button>
+        </li>
+      </ul>
       <label v-else for="photos">
         <font-awesome-icon :icon="['fas', 'cloud-upload-alt']" />
         <h3 class="dropzone-title">
@@ -38,8 +40,7 @@ export default {
   },
   data() {
     return {
-      files: [],
-      file: null
+      files: []
     };
   },
   computed: {
@@ -49,17 +50,40 @@ export default {
   },
   methods: {
     addPhoto() {
-      this.files = this.$refs.photos.files;
-      this.file = {
-        name: this.files[0].name,
-        file: this.files[0]
-      };
+      let files = this.$refs.photos.files;
+      this.files = [...this.files, ...files];
     },
-    dropzone(event) {
-      this.$refs.photos.files = event.dataTransfer.files;
+    dropzone(e) {
+      if (!this.hasFile) {
+        let droppedFiles = e.dataTransfer.files;
+        if (!droppedFiles) return;
+        [...droppedFiles].forEach(f => {
+          this.files.push(f);
+        });
+      }
     },
-    remove() {
-      this.files = [];
+    removeFile(file) {
+      this.files = this.files.filter(f => {
+        return f != file;
+      });
+    },
+    upload() {
+      let formData = new FormData();
+      this.files.forEach((f, x) => {
+        formData.append("file" + (x + 1), f);
+      });
+
+      // fetch("https://httpbin.org/post", {
+      //   method: "POST",
+      //   body: formData
+      // })
+      //   .then(res => res.json())
+      //   .then(res => {
+      //     console.log("done uploading", res);
+      //   })
+      //   .catch(e => {
+      //     console.error(JSON.stringify(e.message));
+      //   });
     }
   }
 };
@@ -76,7 +100,26 @@ export default {
   padding: var(--space-xlg);
   text-align: center;
   color: var(--orange);
+
+  li {
+    background-color: var(--gray-lighter);
+    padding: 8px;
+    position: relative;
+  }
+}
+
+.file-remove {
+  border: none;
+  color: var(--orange);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--orange);
   cursor: pointer;
+  background-color: var(--white);
+  position: absolute;
+  top: -10px;
+  right: -10px;
 }
 
 input[type="file"] {
